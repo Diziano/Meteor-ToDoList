@@ -31,7 +31,7 @@ body {
 header {
     /*background: #fafafa;
     background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);*/
-    padding: 20px 15px 15px 15px;
+    padding: 20px 15px 0px 15px;
     position: relative;
     border-radius: 10px 10px 0 0;
 }
@@ -142,11 +142,17 @@ header .hide-completed {
 
 .top {
     padding: 26px 0 63px;
-    background: #262F3A;
+    background: #35404e;
     height: 90px;
 }
 
 .login-buttons.ng-scope {
     float: right;
     margin-top: -25px;
+}
+
+.table-footer {
+    background-color: #fafafa;
+    height: 50px;
+    border-radius: 0 0 10px 10px;
 }
