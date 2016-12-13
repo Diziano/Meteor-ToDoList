@@ -5,7 +5,7 @@ body {font-family: sans-serif; background-color: #F0F4F4; background-attachment:
  
 header {padding: 20px 15px 0px 15px; position: relative; border-radius: 10px 10px 0 0; }
 
-div.task {background: #fafafa; padding: 5px 15px 15px 15px; position: relative; border-radius: 10px 10px 0 0; }
+div.task {background: #fafafa; padding: 5px 15px 15px 20px; position: relative; border-radius: 10px 10px 0 0; }
  
 #login-buttons {display: block; }
  
@@ -29,7 +29,7 @@ li.private {background: #eee; border-color: #ddd; }
  
 header .hide-completed {float: right; }
  
-.toggle-private {margin-left: 5px; }
+.toggle-private {float: right; margin-right: 10px; }
 
 .top {padding: 26px 0 63px; background: #35404e; height: 90px; }
 
@@ -44,3 +44,8 @@ header .hide-completed {float: right; }
     .search {width: 150px; clear: both; }
     .new-task input {padding-bottom: 5px; }
 }
+
+::-webkit-input-placeholder {color: #000; }
+:-moz-placeholder { /* Firefox 18- */ color: #000; }
+::-moz-placeholder {  /* Firefox 19+ */ color: #000; }
+:-ms-input-placeholder {color: #000; }
