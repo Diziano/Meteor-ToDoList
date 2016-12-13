@@ -1,40 +1,37 @@
 <div class="container">
-<header>
-  <login-buttons></login-buttons>
-  <h1>Lista de Tarefas ( {{$ctrl.incompleteCount}} )</h1>
+  <header>
+    <login-buttons></login-buttons>
+    <h1>Lista de Tarefas ( {{$ctrl.incompleteCount}} )</h1>
 
-    <label class="hide-completed">
-    <input type="checkbox" ng-model="$ctrl.hideCompleted"/>
-    Esconder tarefas concluídas
-  </label>
-
- 
-  
-</header>
- 
- <div class="task">
-  <form class="new-task" ng-submit="$ctrl.addTask($ctrl.newTask)" ng-show="$ctrl.currentUser">
-    <input ng-model="$ctrl.newTask" type="text" name="text" placeholder="Adicionar tarefa"/>
-  </form>
+      <label class="hide-completed">
+      <input type="checkbox" ng-model="$ctrl.hideCompleted"/>
+      Esconder tarefas concluídas
+    </label>
+  </header>
+   
+  <div class="task">
+    <form class="new-task" ng-submit="$ctrl.addTask($ctrl.newTask)" ng-show="$ctrl.currentUser">
+      <input ng-model="$ctrl.newTask.text" type="text" name="text" placeholder="Descrição"/>
+      <input ng-model="$ctrl.newTask.date" type="date" name="date" placeholder="Observação"/>
+      <input type="submit" class="hidden" placeholder="Salvar"/>
+    </form>
   </div>
 
+  <ul>
+    <li ng-repeat="task in $ctrl.tasks" ng-class="{'checked': task.checked, 'private': task.private}">
+      <button class="delete" ng-click="$ctrl.removeTask(task)">&times;</button>
+   
+      <input type="checkbox" ng-checked="task.checked" ng-click="$ctrl.setChecked(task)" class="toggle-checked"/>
+   
+      <span class="text">
+       <strong>{{task.username}}</strong> - {{task.text}} - {{task.date}}
+      </span>
 
-<ul>
-  <li ng-repeat="task in $ctrl.tasks" ng-class="{'checked': task.checked, 'private': task.private}">
-    <button class="delete" ng-click="$ctrl.removeTask(task)">&times;</button>
- 
-    <input type="checkbox" ng-checked="task.checked" ng-click="$ctrl.setChecked(task)" class="toggle-checked"/>
- 
-    <span class="text">
-     <strong>{{task.username}}</strong> - {{task.text}}
-    </span>
+      <button class="toggle-private" ng-click="$ctrl.setPrivate(task)" ng-show="task.owner === $ctrl.currentUser._id">
+        {{task.private == true ? "Privada" : "Pública"}}
+      </button>
 
-    <button class="toggle-private" ng-click="$ctrl.setPrivate(task)" ng-show="task.owner === $ctrl.currentUser._id">
-      {{task.private == true ? "Privada" : "Pública"}}
-    </button>
-
-  </li>
-</ul>
-<div class="table-footer"></div>
-
+    </li>
+  </ul>
+  <div class="table-footer"></div>
 </div>
